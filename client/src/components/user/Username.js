@@ -4,6 +4,7 @@ import avatar from "../../assets/profile.png";
 import styles from "../../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
 import {useFormik} from "formik";
+import {usernameValidate} from "../../helper/validate";
 
 const Username = () => {
 
@@ -11,6 +12,7 @@ const Username = () => {
         initialValues: {
             username: ""
         },
+        validate: usernameValidate,
         validateOnBlur: false,
         validateOnChange: false,
         onSubmit: async values => {
@@ -20,6 +22,7 @@ const Username = () => {
 
     return (
         <div className={"container mx-auto"}>
+            <Toaster position={"top-center"} reverseOrder={false}></Toaster>
             <div className={"flex justify-center items-center h-screen"}>
                 <div className={styles.glass}>
                     <div className={"title flex flex-col items-center"}>
@@ -33,7 +36,7 @@ const Username = () => {
                             <img src={avatar} className={styles.profile_img} alt={"avatar"}/>
                         </div>
                         <div className={"text_box flex flex-col items-center gap-6"}>
-                            <input type={"text"} className={styles.text_box} placeholder={"Username"}/>
+                            <input {...formik.getFieldProps('username')} type={"text"} className={styles.text_box} placeholder={"Username"}/>
                             <button type={"submit"} className={`${styles.btn} bg-indigo-500`}>Let's Go</button>
                         </div>
                         <div className={"text-center py-4"}>
