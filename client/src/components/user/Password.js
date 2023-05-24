@@ -38,11 +38,10 @@ const Password = () => {
                         <div className={"text_box flex flex-col items-center gap-6"}>
                             <input {...formik.getFieldProps('password')} type={"password"} className={styles.text_box}
                                    placeholder={"Password"}/>
-                            <button type={"submit"} className={`${styles.btn} bg-indigo-500`}>Let's Go</button>
+                            <button type={"submit"} className={`${styles.btn} bg-indigo-500`}>Sign up</button>
                         </div>
                         <div className={"text-center py-4"}>
-                            <span className={"text-gray-500"}>Not a Member? <Link className={"text-red-500"}
-                                                                                  to={"/register"}>Register Now</Link> </span>
+                            <span className={"text-gray-500"}>Forgot password? <Link className={"text-red-500"} to={"/recovery"}>Recover Now</Link> </span>
                         </div>
                     </form>
                 </div>
