@@ -31,7 +31,7 @@ const Recovery = () => {
                             Enter OTP to recover password
                         </span>
                     </div>
-                    <form className={"py-20"} onSubmit={formik.handleSubmit}>
+                    <form className={"py-20"} >
                         <div className={"text_box flex flex-col items-center gap-6"}>
                             <div className={"input text-center"}>
                                 <span className={"py-4 text-sm text-left text-gray-500"}>Enter 6 digit OTP sent to your email address</span>
