@@ -2,16 +2,16 @@ import React from "react";
 import styles from "../../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
 import {useFormik} from "formik";
-import {passwordValidate} from "../../helper/validate";
+import {confirmPasswordValidation, passwordValidate} from "../../helper/validate";
 
 const Reset = () => {
 
     const formik = useFormik({
         initialValues: {
             password: "",
-            confirm_pwd:""
+            confirm_pwd: ""
         },
-        validate: passwordValidate,
+        validate: confirmPasswordValidation,
         validateOnBlur: false,
         validateOnChange: false,
         onSubmit: async values => {
@@ -23,7 +23,7 @@ const Reset = () => {
         <div className={"container mx-auto"}>
             <Toaster position={"top-center"} reverseOrder={false}></Toaster>
             <div className={"flex justify-center items-center h-screen"}>
-                <div className={styles.glass}>
+                <div className={styles.glass} style={{width:"50%"}}>
                     <div className={"title flex flex-col items-center"}>
                         <h4 className={"text-5xl font-bold"}>Reset</h4>
                         <span className={"py-4 text-xl w-2/3 text-center text-gray-500"}>
@@ -34,9 +34,10 @@ const Reset = () => {
                         <div className={"text_box flex flex-col items-center gap-6"}>
                             <input {...formik.getFieldProps('password')} type={"password"} className={styles.text_box}
                                    placeholder={"Password"}/>
-                            <input {...formik.getFieldProps('confirm_pwd')} type={"password"} className={styles.text_box}
+                            <input {...formik.getFieldProps('confirm_pwd')} type={"password"}
+                                   className={styles.text_box}
                                    placeholder={"Confirm Password"}/>
-                            <button type={"submit"} className={`${styles.btn} bg-indigo-500`}>Sign up</button>
+                            <button type={"submit"} className={`${styles.btn} bg-indigo-500`}>Reset</button>
                         </div>
                     </form>
                 </div>
